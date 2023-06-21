@@ -45,4 +45,18 @@ public class HarvestableLog : MonoBehaviour
             canHarvest = true;
         }
     }
+
+    private void OnMouseEnter()
+    {
+        HoverTootip.Instance.ShowToolTip("Check Log");
+    }
+    private void OnMouseExit()
+    {
+        HoverTootip.Instance.HideToolTip();
+    }
+
+    private void OnMouseDown()
+    {
+        
+    }
 }

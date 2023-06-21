@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
         {
             foreach (Mushroom m in mushrooms)
             {
-                if (mushroomData.name == m.mushroomData.name)
+                if (mushroomData.type == m.mushroomData.type)
                 {
                     m.amount += amount;
                     inventoryUI.UpdateUI();
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
         {
             foreach (Mushroom m in mushrooms)
             {
-                if (mushroom.name == m.mushroomData.name)
+                if (mushroom.type == m.mushroomData.type)
                 {
                     m.amount -= amount;
                     inventoryUI.UpdateUI();
@@ -58,12 +58,12 @@ public class Inventory : MonoBehaviour
         
         foreach (Mushroom m in mushrooms)
         {
-            Debug.Log(m.mushroomData.name);
-            Debug.Log(mushroom.name);
+            Debug.Log(m.mushroomData.type);
+            Debug.Log(mushroom.type);
             Debug.Log(m.amount);
             Debug.Log(amount);
 
-            if (m.mushroomData.name == mushroom.name && m.amount >= amount)
+            if (m.mushroomData.type == mushroom.type && m.amount >= amount)
             {
                 Debug.Log(true);
                 return true;

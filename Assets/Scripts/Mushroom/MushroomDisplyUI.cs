@@ -13,8 +13,9 @@ public class MushroomDisplyUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] Color backgroundColor;
     [SerializeField] Color highlightColor;
     [SerializeField] Image image;
-    [SerializeField] TextMeshProUGUI name;
-    [SerializeField] TextMeshProUGUI season;
+    [SerializeField] TextMeshProUGUI type;
+    [SerializeField] TextMeshProUGUI harvestSeason;
+    [SerializeField] TextMeshProUGUI inoculateSeason;
     [SerializeField] TextMeshProUGUI number;
 
     // Start is called before the first frame update
@@ -31,8 +32,9 @@ public class MushroomDisplyUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         this.mushroom = mushroom;
         image.sprite = mushroom.mushroomData.image;
-        name.text = mushroom.mushroomData.name;
-        season.text = mushroom.mushroomData.plantingSeason.ToString();
+        type.text = mushroom.mushroomData.type;
+        inoculateSeason.text = "Inoculte in " + mushroom.mushroomData.plantingSeason.ToString();
+        harvestSeason.text = "Harvest in " + mushroom.mushroomData.harvestSeason.ToString();
         number.text = mushroom.amount.ToString();
     }
     

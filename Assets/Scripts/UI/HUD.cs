@@ -26,7 +26,6 @@ public class HUD : MonoBehaviour
 
         inventory.onClick.AddListener(delegate { InventoryUI.Instance.OpenInventory(); });
 
-        SeasonManager.Instance.OnChangeSeason += UpdateCurrentSeason;
     }
     private void OnDisable()
     {
@@ -42,8 +41,11 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
+        SeasonManager.Instance.OnChangeSeason += UpdateCurrentSeason;
+
         UpdateMovementPointUI(Movement.Instance.movementPoints);
         UpdateCurrentSeason();
+
     }
 
     public void UpdateMovementPointUI(int points)

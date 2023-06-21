@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class MushroomData : ScriptableObject
 {
     public Sprite image;
-    public string name;
+    public string type;
     public Season plantingSeason;
+    public Season harvestSeason;
     public string description;
 }

@@ -23,6 +23,12 @@ public class Movement : MonoBehaviour
         cam= GetComponent<Camera>();
     }
 
+    public void AddMovementPoints(int points)
+    {
+        movementPoints += points;
+        HUD.Instance.UpdateMovementPointUI(movementPoints);
+    }
+
     public void MoveCamera(int direction)
     {
         if (moving) return;

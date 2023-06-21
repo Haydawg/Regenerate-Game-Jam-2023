@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1199752030886700224}
   - component: {fileID: 1199752030886700226}
   - component: {fileID: 1199752030886700227}
+  - component: {fileID: 383340806}
   m_Layer: 5
   m_Name: Season
   m_TagString: Untagged
@@ -33,9 +34,9 @@ RectTransform:
   m_Father: {fileID: 1199752032302818416}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135, y: -247}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -88, y: -200}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1199752030886700226
@@ -135,6 +136,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &383340806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199752030886700225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4b7f7921b20b74fadb9a0693f8b69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: Current Season
 --- !u!1 &1199752031008487909
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,10 +319,10 @@ RectTransform:
   m_Father: {fileID: 1199752032302818416}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: -229}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -350, y: -190}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1199752031299791065
 CanvasRenderer:
@@ -551,6 +565,7 @@ GameObject:
   - component: {fileID: 1199752031577814794}
   - component: {fileID: 1199752031577814796}
   - component: {fileID: 1199752031577814797}
+  - component: {fileID: 551565338}
   m_Layer: 5
   m_Name: Movement Points
   m_TagString: Untagged
@@ -573,9 +588,9 @@ RectTransform:
   m_Father: {fileID: 1199752032302818416}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -238, y: -238}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -191, y: -200}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1199752031577814796
@@ -675,6 +690,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &551565338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199752031577814795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4b7f7921b20b74fadb9a0693f8b69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: Movement Points Available
 --- !u!1 &1199752031961881439
 GameObject:
   m_ObjectHideFlags: 0
