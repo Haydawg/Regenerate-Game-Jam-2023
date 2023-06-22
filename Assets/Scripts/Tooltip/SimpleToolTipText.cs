@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class SimpleToolTipText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] string tooltip;
+    public string tooltip;
     public void OnPointerEnter(PointerEventData eventData)
     {
         HoverTootip.Instance.ShowToolTip(tooltip);

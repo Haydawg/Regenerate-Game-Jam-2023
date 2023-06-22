@@ -15,7 +15,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI movementPoints;
     [SerializeField] private TextMeshProUGUI currentSeason;
     [SerializeField] private Button inventory;
-    // Start is called before the first frame update
+
     void OnEnable()
     {
         Instance = this;
@@ -44,7 +44,7 @@ public class HUD : MonoBehaviour
         SeasonManager.Instance.OnChangeSeason += UpdateCurrentSeason;
 
         UpdateMovementPointUI(Movement.Instance.movementPoints);
-        UpdateCurrentSeason();
+        UpdateCurrentSeason(SeasonManager.Instance.currentSeason);
 
     }
 
@@ -53,8 +53,8 @@ public class HUD : MonoBehaviour
         movementPoints.text = points.ToString();
     }
 
-    public void UpdateCurrentSeason()
+    public void UpdateCurrentSeason(Season season)
     {
-        currentSeason.text = SeasonManager.Instance.currentSeason.ToString();
+        currentSeason.text = season.ToString();
     }
 }

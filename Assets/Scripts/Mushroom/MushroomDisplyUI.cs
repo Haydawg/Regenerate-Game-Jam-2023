@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MushroomDisplyUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MushroomDisplyUI : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] Mushroom mushroom;
     [SerializeField] Image background;
@@ -14,8 +14,6 @@ public class MushroomDisplyUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] Color highlightColor;
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI type;
-    [SerializeField] TextMeshProUGUI harvestSeason;
-    [SerializeField] TextMeshProUGUI inoculateSeason;
     [SerializeField] TextMeshProUGUI number;
 
     // Start is called before the first frame update
@@ -33,8 +31,6 @@ public class MushroomDisplyUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
         this.mushroom = mushroom;
         image.sprite = mushroom.mushroomData.image;
         type.text = mushroom.mushroomData.type;
-        inoculateSeason.text = "Inoculte in " + mushroom.mushroomData.plantingSeason.ToString();
-        harvestSeason.text = "Harvest in " + mushroom.mushroomData.harvestSeason.ToString();
         number.text = mushroom.amount.ToString();
     }
     
@@ -46,15 +42,20 @@ public class MushroomDisplyUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Debug.Log("Hover");
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        background.color = highlightColor;
-        HoverTootip.Instance.ShowToolTip(mushroom.mushroomData.description);
-    }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        background.color = backgroundColor;
-        HoverTootip.Instance.HideToolTip();
+        if(LogInteractionUI.Instance.planting)
+        {
+            Debug.Log("ui");
+            LogInteractionUI.Instance.log.Plant(mushroom.mushroomData);
+            InventoryUI.Instance.gameObject.SetActive(false);
+            LogInteractionUI.Instance.UpdateAllUI();
+            LogInteractionUI.Instance.planting = false;
+        }
+        else
+        {
+            EventManager.Instance.OnMushrromDisplay?.Invoke(mushroom.mushroomData);
+        }
     }
 }

@@ -1,23 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HarvestableLog : MonoBehaviour
 {
-    MushroomData mushroomGrowing;
+    public MushroomData mushroomGrowing;
+    public int mushroomCount;
     public bool canHarvest;
     public bool planted;
+    public bool isWatered;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SeasonManager.Instance.OnChangeSeason += MushroomGrow;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        SeasonManager.Instance.OnChangeSeason -= MushroomGrow;
+
     }
+
 
     public void Harvest()
     {
@@ -29,34 +34,66 @@ public class HarvestableLog : MonoBehaviour
 
     public void Plant(MushroomData mushroom)
     {
-        if (mushroomGrowing = null)
+        Debug.Log("Log");
+        if (mushroomGrowing == null)
         {
             if(Inventory.Instance.RemoveMushroom(mushroom,1))
             {
                 mushroomGrowing = mushroom;
+                planted = true;
             }
         }
+        
     }
 
-    public void MushroomGrow()
+    public void MushroomGrow(Season season)
     {
         if(planted)
         {
-            canHarvest = true;
+            if(mushroomGrowing != null)
+            {
+                if(isWatered && mushroomGrowing.harvestSeason == season)
+                {
+                    canHarvest = true;
+                }
+            }
         }
+
+        DrainWater();
+    }
+
+    public void DrainWater()
+    {
+        isWatered= false;
     }
 
     private void OnMouseEnter()
     {
-        HoverTootip.Instance.ShowToolTip("Check Log");
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            HoverTootip.Instance.ShowToolTip("Check Log");
+        }
     }
     private void OnMouseExit()
     {
-        HoverTootip.Instance.HideToolTip();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            HoverTootip.Instance.HideToolTip();
+        }
     }
 
     private void OnMouseDown()
     {
-        
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            FadeToBlack.Instance.StartFade(2);
+            StartCoroutine(MoveToInteractionScreen(1));
+        }
+    }
+
+    IEnumerator MoveToInteractionScreen(int time)
+    {
+        yield return new WaitForSeconds(time);
+        EventManager.Instance.onLogInteraction?.Invoke(this);
     }
 }

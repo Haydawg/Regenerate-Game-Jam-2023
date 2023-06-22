@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public MushroomData[] data;
     public static Inventory Instance;
     public List<Mushroom> mushrooms = new List<Mushroom>();
     public InventoryUI inventoryUI;
@@ -12,7 +13,14 @@ public class Inventory : MonoBehaviour
     {
         Instance = this;
     }
-    // Start is called before the first frame update
+
+    private void Start()
+    {
+        foreach (MushroomData mushroomData in data)
+        {
+            AddMushroom(mushroomData, 1);
+        }
+    }
 
     public void AddMushroom(MushroomData mushroomData, int amount)
     {
@@ -38,12 +46,16 @@ public class Inventory : MonoBehaviour
 
     public bool RemoveMushroom(MushroomData mushroom, int amount)
     {
-        if(SearchInventory(mushroom,amount))
+        Debug.Log("0");
+        if (SearchInventory(mushroom,amount))
         {
             foreach (Mushroom m in mushrooms)
             {
+                Debug.Log("1");
+
                 if (mushroom.type == m.mushroomData.type)
                 {
+                    Debug.Log("2");
                     m.amount -= amount;
                     inventoryUI.UpdateUI();
                     return true;
@@ -58,11 +70,6 @@ public class Inventory : MonoBehaviour
         
         foreach (Mushroom m in mushrooms)
         {
-            Debug.Log(m.mushroomData.type);
-            Debug.Log(mushroom.type);
-            Debug.Log(m.amount);
-            Debug.Log(amount);
-
             if (m.mushroomData.type == mushroom.type && m.amount >= amount)
             {
                 Debug.Log(true);

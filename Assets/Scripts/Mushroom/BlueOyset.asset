@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5628db8ac8fbce4d8ca75208a1fc9b2, type: 3}
+  m_Name: BlueOyset
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 0979b8c689437e64d9de686b0bad8a54, type: 3}
+  juvenileImage: {fileID: 21300000, guid: 77409ba522aef4848a00c60dace31baa, type: 3}
+  type: Blue Oyeter
+  plantingSeason: 2
+  harvestSeason: 3
+  description: Found on hardwood logs trees and stumps, living, dying and decaying.
+    Common throughout North America. Found in the spring and the fall.

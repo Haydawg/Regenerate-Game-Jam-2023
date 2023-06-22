@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
     public static Movement Instance;
     [SerializeField] private float yMovement;
     [SerializeField] private float xMovement;
+
+    [SerializeField] private Vector2 minBounds;
+    [SerializeField] private Vector2 maxBounds;
     public int movementPoints;
 
     private Camera cam;
@@ -29,6 +32,12 @@ public class Movement : MonoBehaviour
         HUD.Instance.UpdateMovementPointUI(movementPoints);
     }
 
+    public void ResetMovementPoints(int points)
+    {
+        movementPoints = points;
+        HUD.Instance.UpdateMovementPointUI(movementPoints);
+    }
+
     public void MoveCamera(int direction)
     {
         if (moving) return;
@@ -38,19 +47,36 @@ public class Movement : MonoBehaviour
             {
 
                 case 0:
-                    StartCoroutine(TransitionCamera((new Vector3(-xMovement, 0, 0))));
+                    if (transform.position.x > minBounds.x)
+                    {
+                        Debug.Log("Test");
+                        StartCoroutine(TransitionCamera((new Vector3(-xMovement, 0, 0))));
+                        movementPoints--;
+                    }
                     break;
                 case 1:
-                    StartCoroutine(TransitionCamera((new Vector3(0, yMovement , 0))));
+                    if (transform.position.y < maxBounds.y)
+                    {
+                        StartCoroutine(TransitionCamera((new Vector3(0, yMovement, 0))));
+                        movementPoints--;
+                    }
                     break;
                 case 2:
-                    StartCoroutine(TransitionCamera((new Vector3(xMovement, 0, 0))));
+                    if (transform.position.x < maxBounds.x)
+                    {
+                        StartCoroutine(TransitionCamera((new Vector3(xMovement, 0, 0))));
+                        movementPoints--;
+                    }
                     break;
                 case 3:
-                    StartCoroutine(TransitionCamera((new Vector3(0, -yMovement, 0))));
+                    if (transform.position.y > minBounds.y)
+                    {
+                        StartCoroutine(TransitionCamera((new Vector3(0, -yMovement, 0))));
+                        movementPoints--;
+                    }
                     break;
             }
-            movementPoints--;
+            
             HUD.Instance.UpdateMovementPointUI(movementPoints);
         }
     }
@@ -68,5 +94,10 @@ public class Movement : MonoBehaviour
 
         }
         moving = false;
+    }
+
+    public void ReturnToCentre()
+    {
+        StartCoroutine(TransitionCamera(Vector3.zero));
     }
 }

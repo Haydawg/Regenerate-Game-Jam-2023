@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5628db8ac8fbce4d8ca75208a1fc9b2, type: 3}
+  m_Name: Hemlock Reishi
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 57e18b3bb06f5754086cec1839d6bfe2, type: 3}
+  juvenileImage: {fileID: 21300000, guid: e98f8e25a28c8b34b8c4cc304cf99fc8, type: 3}
+  type: Hemlock Reishi
+  plantingSeason: 3
+  harvestSeason: 0
+  description: tends to grow on conifers, especially hemlocks.

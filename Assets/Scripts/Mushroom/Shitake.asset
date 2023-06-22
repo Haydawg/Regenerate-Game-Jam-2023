@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5628db8ac8fbce4d8ca75208a1fc9b2, type: 3}
+  m_Name: Shitake
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 7ba2bf2cad5204e4cb8e69350824f313, type: 3}
+  juvenileImage: {fileID: 21300000, guid: 4b636ba5de8dc404192215714fe6658d, type: 3}
+  type: Shiitake
+  plantingSeason: 2
+  harvestSeason: 0
+  description: shiitake mushrooms are typically grown in conditions similar to their
+    natural environment on either artificial substrate or hardwood logs, such as
+    oak
