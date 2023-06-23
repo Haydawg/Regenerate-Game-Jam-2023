@@ -46,16 +46,12 @@ public class Inventory : MonoBehaviour
 
     public bool RemoveMushroom(MushroomData mushroom, int amount)
     {
-        Debug.Log("0");
         if (SearchInventory(mushroom,amount))
         {
             foreach (Mushroom m in mushrooms)
             {
-                Debug.Log("1");
-
                 if (mushroom.type == m.mushroomData.type)
                 {
-                    Debug.Log("2");
                     m.amount -= amount;
                     inventoryUI.UpdateUI();
                     return true;
@@ -66,13 +62,11 @@ public class Inventory : MonoBehaviour
     }
     bool SearchInventory(MushroomData mushroom, int amount = 1)
     {
-        Debug.Log(mushrooms.Count);
         
         foreach (Mushroom m in mushrooms)
         {
             if (m.mushroomData.type == mushroom.type && m.amount >= amount)
             {
-                Debug.Log(true);
                 return true;
             }
         }

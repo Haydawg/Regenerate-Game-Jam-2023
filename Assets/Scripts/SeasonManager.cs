@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +22,7 @@ public class SeasonManager : MonoBehaviour
 
     public Season currentSeason;
     int seasonIterator;
+    public int seasonCounter;
 
     [SerializeField] private Tile groundTile;
     [SerializeField] private Sprite[] groundSprites;
@@ -34,11 +34,7 @@ public class SeasonManager : MonoBehaviour
     void Start()
     {
         currentSeason = (Season)seasonIterator;
-    }
-
-    private void Update()
-    {
-
+        seasonCounter = 1;
     }
 
 
@@ -46,6 +42,11 @@ public class SeasonManager : MonoBehaviour
     {
         FadeToBlack.Instance.StartFade(2);
         StartCoroutine(MoveSeason(2));
+        seasonCounter++;
+        if(seasonCounter >= 9)
+        {
+            EventManager.Instance.EndGame?.Invoke();
+        }
     }
     IEnumerator MoveSeason(int time)
     {

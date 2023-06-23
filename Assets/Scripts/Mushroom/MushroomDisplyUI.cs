@@ -50,7 +50,6 @@ public class MushroomDisplyUI : MonoBehaviour, IPointerDownHandler
             Debug.Log("ui");
             LogInteractionUI.Instance.log.Plant(mushroom.mushroomData);
             InventoryUI.Instance.gameObject.SetActive(false);
-            LogInteractionUI.Instance.UpdateAllUI();
             LogInteractionUI.Instance.planting = false;
         }
         else

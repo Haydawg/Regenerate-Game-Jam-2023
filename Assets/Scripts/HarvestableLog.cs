@@ -34,7 +34,6 @@ public class HarvestableLog : MonoBehaviour
 
     public void Plant(MushroomData mushroom)
     {
-        Debug.Log("Log");
         if (mushroomGrowing == null)
         {
             if(Inventory.Instance.RemoveMushroom(mushroom,1))
@@ -43,7 +42,7 @@ public class HarvestableLog : MonoBehaviour
                 planted = true;
             }
         }
-        
+        LogInteractionUI.Instance.UpdateAllUI();
     }
 
     public void MushroomGrow(Season season)
@@ -65,6 +64,7 @@ public class HarvestableLog : MonoBehaviour
     public void DrainWater()
     {
         isWatered= false;
+        LogInteractionUI.Instance.UpdateAllUI();
     }
 
     private void OnMouseEnter()
